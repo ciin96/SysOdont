@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="pacientes" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8fd6b42d-e73c-485a-a109-10c6532ea3cc">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="DESDE" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="HASTA" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from pacientes p where p.id_paciente
+between $P{DESDE} and $P{HASTA} order by id_paciente]]>
+	</queryString>
+	<field name="id_paciente" class="java.lang.Integer"/>
+	<field name="nombre_paciente" class="java.lang.String"/>
+	<field name="apellido_paciente" class="java.lang.String"/>
+	<field name="ci_paciente" class="java.lang.Integer"/>
+	<field name="direccion_paciente" class="java.lang.String"/>
+	<field name="telefono_paciente" class="java.lang.Integer"/>
+	<field name="correo_paciente" class="java.lang.String"/>
+	<field name="fechanac_paciente" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="177" y="19" width="284" height="36" uuid="ca61ac1a-7c25-4066-b536-e0a53e68edd6"/>
+				<textElement>
+					<font fontName="Arial" size="24" isBold="true" isItalic="true" isUnderline="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Reporte de Pacientes]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="34" splitType="Stretch">
+			<staticText>
+				<reportElement x="92" y="0" width="100" height="20" uuid="460d8553-a0c9-4909-a490-040080100f03"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="221" y="0" width="100" height="20" uuid="3e031dd3-4668-4763-8fff-39955979fa44"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="64" height="20" uuid="9caa9e42-8a71-406e-8ca0-484453e0f5d4"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="357" y="2" width="100" height="20" uuid="d8cc42b5-a1fe-4f2e-ab72-713e6b16b734"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Teléfono]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="44" splitType="Stretch">
+			<textField>
+				<reportElement x="92" y="12" width="100" height="20" uuid="318ee55e-5576-4bfe-9918-107712c0e39c"/>
+				<textFieldExpression><![CDATA[$F{nombre_paciente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="221" y="12" width="100" height="20" uuid="d6318cdb-3eda-43ba-85a4-a793164dcb6a"/>
+				<textFieldExpression><![CDATA[$F{apellido_paciente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="12" width="64" height="20" uuid="f8a7db45-8b72-4fc9-8195-166df5f367f3"/>
+				<textFieldExpression><![CDATA[$F{id_paciente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="357" y="12" width="100" height="20" uuid="8134c686-906e-4839-b16e-5ecb83ef4d5d"/>
+				<textFieldExpression><![CDATA[$F{telefono_paciente}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

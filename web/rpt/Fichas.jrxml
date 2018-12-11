@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Fichas" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6c52d3f5-9d68-4fa8-a793-cbdc7694358c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="DESDE" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="HASTA" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select d.nombre_doctor, d.nroregistro_doctor, f.fecha_ficha, p.nombre_paciente, p.ci_paciente, s.nombre_servicio
+from detallefichas df
+join fichas f on df.id_ficha = f.id_ficha
+join doctores d on f.id_doctor = d.id_doctor
+join pacientes p on f.id_paciente = p.id_paciente
+join servicios s on df.id_servicio = s.id_servicio
+where f.fecha_ficha between $P{DESDE} and $P{HASTA}]]>
+	</queryString>
+	<field name="nombre_doctor" class="java.lang.String"/>
+	<field name="nroregistro_doctor" class="java.lang.Integer"/>
+	<field name="fecha_ficha" class="java.sql.Date"/>
+	<field name="nombre_paciente" class="java.lang.String"/>
+	<field name="ci_paciente" class="java.lang.Integer"/>
+	<field name="nombre_servicio" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="134" y="21" width="271" height="41" uuid="316287a1-6ebd-47ec-92a3-2ba8f10a9edc"/>
+				<textElement>
+					<font fontName="Arial" size="24" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Pacientes Atendidos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="5" y="0" width="100" height="20" uuid="d83c211a-f532-4f55-9145-ca36e3c04b84"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Doctor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="134" y="0" width="100" height="20" uuid="41040a00-8ad3-4850-967b-e9c67df2b4b4"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Registro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="258" y="0" width="100" height="20" uuid="9834a079-33df-46d6-bb00-9b34971a5f28"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="385" y="0" width="100" height="20" uuid="17901692-4a2f-4b25-b1fe-becfaff4c80a"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Paciente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="513" y="0" width="100" height="20" uuid="3875994e-9ccc-480f-be5d-291c54c2b4ce"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[CI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="635" y="0" width="100" height="20" uuid="4830fb6b-841e-4119-b82a-35c0e7786b31"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Servicio]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="60" splitType="Stretch">
+			<textField>
+				<reportElement x="5" y="12" width="100" height="20" uuid="253eb49d-4ac0-452c-a35f-d46781454cd3"/>
+				<textFieldExpression><![CDATA[$F{nombre_doctor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="134" y="12" width="100" height="20" uuid="f7c3264f-8fe1-4740-ac0d-48fbf74b43e0"/>
+				<textFieldExpression><![CDATA[$F{nroregistro_doctor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="258" y="12" width="100" height="20" uuid="e72b1e1b-fcab-4694-ab62-af32d43b99bd"/>
+				<textFieldExpression><![CDATA[$F{fecha_ficha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="385" y="12" width="100" height="20" uuid="7d0a3416-14d3-440d-a4bc-0c3932e6cfdc"/>
+				<textFieldExpression><![CDATA[$F{nombre_paciente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="513" y="12" width="100" height="20" uuid="4e216596-f40b-410a-a687-4db07e3f280f"/>
+				<textFieldExpression><![CDATA[$F{ci_paciente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="635" y="12" width="100" height="20" uuid="2ea49fee-1ca9-4cf5-9328-da153ddad7fc"/>
+				<textFieldExpression><![CDATA[$F{nombre_servicio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

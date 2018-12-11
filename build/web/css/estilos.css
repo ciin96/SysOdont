@@ -1,0 +1,674 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 25/04/2018, 10:41:40 AM
+    Author     : ALUMNO1
+*/
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+#panelAcceso{
+    width: 350px; /* comentario */
+    margin: auto;
+    margin-top: 5%;
+}
+
+#panelPrograma{
+   width: 95%; /* comentario */
+    height: 95%;
+    margin: auto;
+    margin-top: 5%;
+}
+
+#panelProgramaReporte{
+   width: 1200px; /* comentario */
+    height: 200px;
+    margin: auto;
+    margin-top: 5%;
+}
+
+#mensajes{
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 0;
+    width: 100%;
+    height: 40px;
+}
+.izquierda{
+    text-align: left;
+}
+.centrado{
+    text-align: center;
+}
+.derecha{
+    text-align: right;
+}
+.row{
+    margin-bottom: 3px;
+}
+tbody tr{
+    cursor: pointer;
+}
+@media (max-width: 700px){
+    .id{
+        display: none;
+    }
+}
+
+
+
+/*Rubros*/
+
+.colorfor {
+	background-color : red;
+	border-color: red;
+	
+}
+
+.colorfor1:hover {
+    background:gray;
+    border-color: black;
+}
+
+.rojo {
+    border-color: #b92c28
+}
+
+.panel-primary1 {
+  border-color: red;
+}
+.panel-primary1 > .panel-heading {
+  color: #fff;
+  background-color: red;
+  border-color: red;
+}
+.panel-primary1 > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: red;
+}
+.panel-primary1 > .panel-heading .badge {
+  color: #c12e2a;
+  background-color: #fff;
+}
+.panel-primary1 > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: red;
+}
+
+/*FORM-CONTROL-ROJO*/
+
+.fcontrolrojo {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.fcontrolrojo:focus {
+  border-color: #d43f3a;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+.fcontrolrojo::-moz-placeholder {
+  color: #999;
+  opacity: 1;
+}
+.fcontrolrojo:-ms-input-placeholder {
+  color: #999;
+}
+.fcontrolrojo::-webkit-input-placeholder {
+  color: #999;
+}
+.fcontrolrojo[disabled],
+.fcontrolrojo[readonly],
+fieldset[disabled] .fcontrolrojo {
+  cursor: not-allowed;
+  background-color: #eee;
+  opacity: 1;
+}
+textarea.fcontrolrojo {
+  height: auto;
+}
+
+.form-group-sm .fcontrolrojo {
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+select.form-group-sm .fcontrolrojo {
+  height: 30px;
+  line-height: 30px;
+}
+textarea.form-group-sm .fcontrolrojo,
+select[multiple].form-group-sm .fcontrolrojo {
+  height: auto;
+}
+
+/*Formulario verde*/
+
+.verde {
+  border-color: #4cae4c;
+}
+.verde > .panel-heading {
+  color: #fff;
+  background-color: #4cae4c;
+  border-color: #4cae4c;
+}
+.verde > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #4cae4c;
+}
+.verde > .panel-heading .badge {
+  color: #c12e2a;
+  background-color: #fff;
+}
+.verde > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #4cae4c;
+}
+
+/*botones*/
+.cverde {
+	background-color : #4cae4c;
+	border-color: #4cae4c;
+	
+}
+
+.cverde:hover {
+    background:#b2dba1;
+    border-color: #2b542c;
+}
+
+.ver {
+    border-color: green;
+}
+
+/*FORM-CONTROL-VERDE*/
+
+.fcontrol {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.fcontrol:focus {
+  border-color: #4cae4c;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+.fcontrol::-moz-placeholder {
+  color: #999;
+  opacity: 1;
+}
+.fcontrol:-ms-input-placeholder {
+  color: #999;
+}
+.fcontrol::-webkit-input-placeholder {
+  color: #999;
+}
+.fcontrol[disabled],
+.fcontrol[readonly],
+fieldset[disabled] .fcontrol {
+  cursor: not-allowed;
+  background-color: #eee;
+  opacity: 1;
+}
+textarea.fcontrol {
+  height: auto;
+}
+
+.form-group-sm .fcontrol {
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+select.form-group-sm .fcontrol {
+  height: 30px;
+  line-height: 30px;
+}
+textarea.form-group-sm .fcontrol,
+select[multiple].form-group-sm .fcontrol {
+  height: auto;
+}
+
+/*Formulario Estado civil*/
+
+.celeste {
+	background-color : skyblue;
+	border-color: skyblue;
+	
+}
+
+.celeste1:hover {
+    background:#a6e1ec;
+    border-color: #2aabd2;
+}
+
+.celes {
+    border-color: #31b0d5
+}
+
+.primary-celeste {
+  border-color: skyblue;
+}
+.primary-celeste > .panel-heading {
+  color: #fff;
+  background-color: skyblue;
+  border-color: skyblue;
+}
+.primary-celeste > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: skyblue;
+}
+.primary-celeste > .panel-heading .badge {
+  color: #c12e2a;
+  background-color: #fff;
+}
+.primary-celeste > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: skyblue;
+}
+
+
+
+.fcontrolceleste {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.fcontrolceleste:focus {
+  border-color: #269abc;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+.fcontrolceleste::-moz-placeholder {
+  color: #999;
+  opacity: 1;
+}
+.fcontrolceleste:-ms-input-placeholder {
+  color: #999;
+}
+.fcontrolceleste::-webkit-input-placeholder {
+  color: #999;
+}
+.fcontrolceleste[disabled],
+.fcontrolceleste[readonly],
+fieldset[disabled] .fcontrolceleste {
+  cursor: not-allowed;
+  background-color: #eee;
+  opacity: 1;
+}
+textarea.fcontrolceleste {
+  height: auto;
+}
+
+.form-group-sm .fcontrolceleste {
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+select.form-group-sm .fcontrolceleste {
+  height: 30px;
+  line-height: 30px;
+}
+textarea.form-group-sm .fcontrolceleste,
+select[multiple].form-group-sm .fcontrolceleste {
+  height: auto;
+}
+
+/*Articulos*/
+
+.amarillo {
+	background-color : yellow;
+	border-color: yellow;
+        color: black;
+	
+}
+
+.amarillo1:hover {
+    background:#f5e79e;
+    border-color: yellow;
+}
+
+.ama {
+    border-color: yellow
+}
+
+.primary-amarillo {
+  border-color: yellow;
+  color: black;
+}
+
+.primary-amarillo {
+  border-color: yellow;
+}
+.primary-amarillo > .panel-heading {
+  color: #fff;
+  background-color: yellow;
+  border-color: yellow;
+}
+.primary-amarillo > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: yellow;
+}
+.primary-amarillo > .panel-heading .badge {
+  color: yellow;
+  background-color: #fff;
+}
+.primary-amarillo > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: yellow;
+}
+
+
+
+.fcontrolamarillo {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.fcontrolamarillo:focus {
+  border-color: #ff0;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+.fcontrolamarillo::-moz-placeholder {
+  color: #999;
+  opacity: 1;
+}
+.fcontrolamarillo:-ms-input-placeholder {
+  color: #999;
+}
+.fcontrolamarillo::-webkit-input-placeholder {
+  color: #999;
+}
+.fcontrolamarillo[disabled],
+.fcontrolamarillo[readonly],
+fieldset[disabled] .fcontrolamarillo {
+  cursor: not-allowed;
+  background-color: #eee;
+  opacity: 1;
+}
+textarea.fcontrolamarillo {
+  height: auto;
+}
+
+.form-group-sm .fcontrolamarillo {
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+select.form-group-sm .fcontrolamarillo {
+  height: 30px;
+  line-height: 30px;
+}
+textarea.form-group-sm .fcontrolamarillo,
+select[multiple].form-group-sm .fcontrolamarillo {
+  height: auto;
+}
+
+/*Nacionalidades*/
+
+.azul {
+	background-color : blue;
+	border-color: Blue;
+        color: #e0e0e0;
+	
+}
+
+.azul1:hover {
+    background:#245580;
+    border-color: #31b0d5;
+    color: white;
+}
+
+.azu {
+    border-color: blue
+}
+
+.primary-azul {
+  border-color: blue;
+  color: #999999;
+}
+
+.primary-azul {
+  border-color: blue;
+}
+.primary-azul > .panel-heading {
+  color: #fff;
+  background-color: blue;
+  border-color: blue;
+}
+.primary-azul > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: blue;
+}
+.primary-azul > .panel-heading .badge {
+  color: blue;
+  background-color: #fff;
+}
+.primary-azul > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: blue;
+}
+
+
+
+.fcontrolazul {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.fcontrolazul:focus {
+  border-color: #2e6da4;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+.fcontrolazul::-moz-placeholder {
+  color: #999;
+  opacity: 1;
+}
+.fcontrolazul:-ms-input-placeholder {
+  color: #999;
+}
+.fcontrolazul::-webkit-input-placeholder {
+  color: #999;
+}
+.fcontrolazul[disabled],
+.fcontrolazul[readonly],
+fieldset[disabled] .fcontrolazul {
+  cursor: not-allowed;
+  background-color: #eee;
+  opacity: 1;
+}
+textarea.fcontrolazul {
+  height: auto;
+}
+
+.form-group-sm .fcontrolazul {
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+select.form-group-sm .fcontrolazul {
+  height: 30px;
+  line-height: 30px;
+}
+textarea.form-group-sm .fcontrolazul,
+select[multiple].form-group-sm .fcontrolazul {
+  height: auto;
+}
+
+/*CLIENTES*/
+
+.naranja {
+	background-color : orange;
+	border-color: orange;
+	
+}
+
+.naranja1:hover {
+    background:#ec971f;
+    border-color: orangered;
+}
+
+.nara {
+    border-color: orange;
+}
+
+.primary-naranja {
+  border-color: orange;
+}
+
+
+.primary-naranja > .panel-heading {
+  color: #fff;
+  background-color: orange;
+  border-color: orange;
+}
+.primary-naranja > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: orange;
+}
+.primary-naranja > .panel-heading .badge {
+  color: orange;
+  background-color: #fff;
+}
+.primary-naranja > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: orange;
+}
+
+
+
+.fcontrolnaranja {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.fcontrolnaranja:focus {
+  border-color: #f0ad4e;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+.fcontrolnaranja::-moz-placeholder {
+  color: #999;
+  opacity: 1;
+}
+.fcontrolnaranja:-ms-input-placeholder {
+  color: #999;
+}
+.fcontrolnaranja::-webkit-input-placeholder {
+  color: #999;
+}
+.fcontrolnaranja[disabled],
+.fcontrolnaranja[readonly],
+fieldset[disabled] .fcontrolnaranja {
+  cursor: not-allowed;
+  background-color: #eee;
+  opacity: 1;
+}
+textarea.fcontrolnaranja {
+  height: auto;
+}
+
+.form-group-sm .fcontrolnaranja {
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+select.form-group-sm .fcontrolnaranja {
+  height: 30px;
+  line-height: 30px;
+}
+textarea.form-group-sm .fcontrolnaranja,
+select[multiple].form-group-sm .fcontrolnaranja {
+  height: auto;
+}

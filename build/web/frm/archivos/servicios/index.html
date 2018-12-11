@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Servicios</title>
+        <meta charset="UTF-8">
+        <link href="../../../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/estilos.css" rel="stylesheet" type="text/css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body style="background-image: url('../../../img/img6.jpg')"> 
+        <div id="confirmar"></div>
+        <div id="buscar"></div>
+        <div id="panelPrograma" class="panel panel-primary">
+            <div class="panel-heading centrado">Servicios  | <span
+                    id="sservicio_servicio"></span></div>
+                    <div class="panel-body">
+                        <form id="formPrograma">
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <span>Id</span>
+                                </div>
+                                <div class="col-md-1">
+                                    <input id="id_servicio" name="id_servicio" type="text"
+                                           class="form-control imput-sm" placeholder="Id">
+                                </div>
+                                <div class="col-md-1">
+                                    <button id="botonBuscarIdServicio" type="button" class="btn btn-primary btn-sm"><span
+                                            class="glyphicon glyphicon-search"></span></button>
+                                </div>
+                                <div class="col-md-9">   
+                            </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1">
+                                <span>Nombre</span>
+                            </div>
+                            <div class="col-md-3">
+                                <input id="nombre_servicio" name="nombre_servicio" type="text" class="form-control input-sm" placeholder="Nombre"  onkeypress="return soloLetras(event)">
+                            </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1">
+                                <span>Descripcion</span>
+                            </div>
+                            <div class="col-md-3">
+                                <input id="descripcion_servicio" name="descripcion_servicio" type="text" class="form-control input-sm" placeholder="Descripcion">
+                            </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1">
+                                <span>Precio</span>
+                            </div>
+                            <div class="col-md-3">
+                                <input id="precio_servicio" name="precio_servicio" type="text" class="form-control input-sm" placeholder="Precio" onkeyup="this.value = this.value.toUpperCase()"  onkeypress="return SoloNumeros(event)">
+                            </div>
+                            </div>
+                            
+                             <div class="row">
+                                <div class="col-md-1">
+                                <span>Observacion</span>
+                            </div>
+                            <div class="col-md-3">
+                                <input id="observacion_servicio" name="observacion_servicio" type="text" class="form-control input-sm" placeholder="Observacion">
+                            </div>
+                            </div>
+                           
+                        </form>
+                    </div>
+            <div class="panel-footer centrado">
+                <button id="botonAgregar" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span>Agregar</button>
+                <button id="botonModificar" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-retweet"></span>Modificar</button>
+                <button id="BotonEliminar" type="button" class="btn btn-primary btn-sm" data-toggle="modal"
+                        data-target="#confirmarEliminar"><span class="glyphicon glyphicon-trash"></span>Eliminar</button>
+                <button id="botonSalir" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-log-out"></span>Salir</button>
+            </div>
+        </div>
+        <div id="mensajes" class="well well-sm centrado">Mensaje del Sistema.</div>
+        <div class="modal fade" id="confirmarEliminar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header centrado">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">
+                                &times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Mensaje del Sistema</h4>
+                    </div>
+                    <div class="modal-footer centrado">
+                        <button id="botonEliminarAlert" type="button" class="btn btn-primary btn-sm">Eliminar</button>
+                        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../../../js/jquery.min.js" type="text/javascript"></script>
+        <script src="../../../js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../../../js/funciones.js" type="text/javascript"></script>
+        <script src="js/funciones.js" type="text/javascript"></script>
+    <script>
+        //verificarSesion(true);
+        $("#buscar").css("display", "none");
+        $("#id_servicio").focus();
+        //siguientecampo("#id_servicio", "#nombre_servicio", false);
+        $("#id_servicio").focusout(function (event) {
+            if ($("#id_servicio").val() === "") {
+                $("#id_servicio").val("0");
+            }
+            buscarIdServicio();
+        });
+        $("#botonBuscarIdServicio").on('click', function () {
+           $("#buscar").load("buscar.html");
+           $("#buscar").fadeIn("slow");
+           $("#panelPrograma").fadeOut("slow");
+        });
+        $("#botonAgregar").on('click', function () {
+          //if (validarFormulario()) {
+              agregarServicio();
+          //}  
+        });
+        $("#botonModificar").on('click', function () {
+         //if(validarFormulario()) {
+             modificarServicio();
+         //}   
+        });
+        $("#botonEliminarAlert").on('click', function () {
+           eliminarServicio();
+           $('#confirmarEliminar').modal('hide');
+        });
+        $("#botonSalir").on('click', function () {
+            location.href = "../../../menu.html";
+        });
+        
+    </script>
+    </body>
+</html>

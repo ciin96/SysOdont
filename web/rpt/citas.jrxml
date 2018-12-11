@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="citas" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4ca50091-d411-444c-93de-a77ded30596b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="DESDE" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="HASTA" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select s.nombre_servicio, c.fecha_cita, p.nombre_paciente, p.ci_paciente, h.horain_horario, h.horafin_horario, d.nombre_doctor, d.nroregistro_doctor
+from detallecitas dc join citas c on dc.id_cita = c.id_cita
+join servicios s on dc.id_servicio = s.id_servicio
+join pacientes p on dc.id_paciente = p.id_paciente
+join horarios h on dc.id_horario = h.id_horario
+join doctores d on c.id_doctor = d.id_doctor
+where c.fecha_cita between $P{DESDE} and $P{HASTA}
+
+]]>
+	</queryString>
+	<field name="nombre_servicio" class="java.lang.String"/>
+	<field name="fecha_cita" class="java.sql.Date"/>
+	<field name="nombre_paciente" class="java.lang.String"/>
+	<field name="ci_paciente" class="java.lang.Integer"/>
+	<field name="horain_horario" class="java.lang.String"/>
+	<field name="horafin_horario" class="java.lang.String"/>
+	<field name="nombre_doctor" class="java.lang.String"/>
+	<field name="nroregistro_doctor" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="110" y="14" width="311" height="55" forecolor="#000099" uuid="44e4387e-2116-4e8b-88ec-86ea56c22f73"/>
+				<textElement>
+					<font fontName="Arial" size="36" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de Citas]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="63" height="20" uuid="458877d0-d134-4ca4-a67f-a2543c0080ea"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Doctor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="67" height="20" uuid="6f8a51ae-1934-4778-b77d-a7bc421d4abf"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Registro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="0" width="66" height="20" uuid="15bf282d-0abf-4c68-9b6b-26899c174339"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Cita]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="322" y="0" width="71" height="20" uuid="ad2c75fb-06a2-4850-91f4-7381988ae1a0"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Paciente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="446" y="0" width="55" height="20" uuid="7ff1f110-89d3-4684-ae71-59681ee171de"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[CI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="556" y="0" width="67" height="20" uuid="4b4e4ff9-38ed-49ac-a4d3-5d54f9444b4b"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Servicio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="671" y="0" width="58" height="20" uuid="462f5a9e-c9e1-440e-84df-b55513c6182c"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Inicio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="743" y="0" width="59" height="20" uuid="6cddeaf6-0753-41ba-acec-273637bd7b71"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fin]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="47" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="deb7ae63-1b1c-4ff1-b821-47377293b8ad"/>
+				<textFieldExpression><![CDATA[$F{nombre_doctor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="0" width="100" height="20" uuid="54b639b5-1c02-45ef-a521-a9d27280b849"/>
+				<textFieldExpression><![CDATA[$F{nroregistro_doctor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="222" y="0" width="100" height="20" uuid="c708af0b-02f4-4f91-a88f-081817505cb3"/>
+				<textFieldExpression><![CDATA[$F{fecha_cita}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="334" y="0" width="100" height="20" uuid="11ff3ea3-f5d6-4800-bff0-93626c639963"/>
+				<textFieldExpression><![CDATA[$F{nombre_paciente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="446" y="0" width="100" height="20" uuid="3fc72ac4-6b1f-4d13-8ee5-17de75166f10"/>
+				<textFieldExpression><![CDATA[$F{ci_paciente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="556" y="0" width="100" height="20" uuid="90100494-c928-40ff-8f5d-68c29386e429"/>
+				<textFieldExpression><![CDATA[$F{nombre_servicio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="671" y="0" width="58" height="20" uuid="f7c9d5f6-8b05-448b-8f40-c3792669ffa8"/>
+				<textFieldExpression><![CDATA[$F{horain_horario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="743" y="0" width="59" height="20" uuid="4b882308-fa1b-4757-8e05-6735d7d719a1"/>
+				<textFieldExpression><![CDATA[$F{horafin_horario}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

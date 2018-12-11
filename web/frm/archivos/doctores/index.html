@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Doctores</title>
+        <meta charset="UTF-8">
+        <link href="../../../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/estilos.css" rel="stylesheet" type="text/css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body style="background-image: url('../../../img/img6.jpg')"> 
+        <div id="confirmar"></div>
+        <div id="buscar"></div>
+        <div id="panelPrograma" class="panel panel-primary">
+            <div class="panel-heading centrado">Doctores  | <span
+                    id="sdoctor_doctor"></span></div>
+            <div class="panel-body">
+                <form id="formPrograma">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Id</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_doctor" name="id_doctor" type="text"
+                                   class="form-control imput-sm" placeholder="Id">
+                        </div>
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdDoctor" type="button" class="btn btn-primary btn-sm"><span
+                                    class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                        <div class="col-md-9">   
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Nombre</span>
+                        </div>
+                        <div class="col-md-3">
+                            <input id="nombre_doctor" name="nombre_doctor" type="text" class="form-control input-sm" placeholder="Nombre"  onkeypress="return soloLetras(event)">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Apellido</span>
+                        </div>
+                        <div class="col-md-3">
+                            <input id="apellido_doctor" name="apellido_doctor" type="text" class="form-control input-sm" placeholder="Apellido"  onkeypress="return soloLetras(event)">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>CI</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="ci_doctor" name="ci_doctor" type="text" class="form-control input-sm" placeholder="CI" onkeyup="this.value = this.value.toUpperCase()" onkeypress="return SoloNumeros(event)">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Registro</span>
+                        </div>
+                        <div class="col-md-3">
+                            <input id="nroregistro_doctor" name="nroregistro_doctor" type="text" class="form-control input-sm" placeholder="Registro" onkeyup="this.value = this.value.toUpperCase()" onkeypress="return SoloNumeros(event)">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Direccion</span>
+                        </div>
+                        <div class="col-md-3">
+                            <input id="direccion_doctor" name="direccion_doctor" type="text" class="form-control input-sm" placeholder="Direccion" >
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Telefono</span>
+                        </div>
+                        <div class="col-md-3">
+                            <input id="telefono_doctor" name="telefono_doctor" type="text" class="form-control input-sm" placeholder="Telefono" onkeyup="this.value = this.value.toUpperCase()" onkeypress="return SoloNumeros(event)">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Correo</span>
+                        </div>
+                        <div class="col-md-3">
+                            <input id="correo_doctor" name="correo_doctor" type="email" class="form-control input-sm" placeholder="Correo" onkeypress="validarCorreo(this)">
+                           <a id='resultado'></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="panel-footer centrado">
+                <button id="botonAgregar" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span>Agregar</button>
+                <button id="botonModificar" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-retweet"></span>Modificar</button>
+                <button id="BotonEliminar" type="button" class="btn btn-primary btn-sm" data-toggle="modal"
+                        data-target="#confirmarEliminar"><span class="glyphicon glyphicon-trash"></span>Eliminar</button>
+                <button id="botonSalir" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-log-out"></span>Salir</button>
+            </div>
+        </div>
+        <div id="mensajes" class="well well-sm centrado">Mensaje del Sistema.</div>
+        <div class="modal fade" id="confirmarEliminar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header centrado">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">
+                                &times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Mensaje del Sistema</h4>
+                    </div>
+                    <div class="modal-footer centrado">
+                        <button id="botonEliminarAlert" type="button" class="btn btn-primary btn-sm">Eliminar</button>
+                        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../../../js/jquery.min.js" type="text/javascript"></script>
+        <script src="../../../js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../../../js/funciones.js" type="text/javascript"></script>
+        <script src="js/funciones.js" type="text/javascript"></script>
+        <script>
+                                verificarSesion(true);
+                                $("#buscar").css("display", "none");
+                                $("#id_doctor").focus();
+                                //siguientecampo("#id_doctor", "#nombre_doctor", false);
+                                $("#id_doctor").focusout(function (event) {
+                                    if ($("#id_doctor").val() === "") {
+                                        $("#id_doctor").val("0");
+                                    }
+                                    buscarIdDoctor();
+                                });
+                                $("#botonBuscarIdDoctor").on('click', function () {
+                                    $("#buscar").load("buscar.html");
+                                    $("#buscar").fadeIn("slow");
+                                    $("#panelPrograma").fadeOut("slow");
+                                });
+
+
+                                $("#nroregistro_doctor").focusout(function (event) {
+                                    if ($("#nroregistro_doctor").val() !== "") {
+                                        buscarNroregistro();
+                                    }
+
+                                });
+
+                                $("#ci_doctor").focusout(function (event) {
+                                    if ($("#ci_doctor").val() !== "") {
+                                        buscarCi();
+                                    }
+
+                                });
+                                
+                                   $("#correo_doctor").focusout(function (event) {
+                                    if ($("#correo_doctor").val() !== "") {
+                                        buscarCorreo();
+                                        validarCorreo();
+                                    }
+
+                                });
+
+                                $("#botonAgregar").on('click', function () {
+                                    if (validarFormulario()) {
+                                    agregarDoctor();
+                                    }  
+                                });
+                                $("#botonModificar").on('click', function () {
+                                    if(validarFormulario()) {
+                                    modificarDoctor();
+                                    }   
+                                });
+                                $("#botonEliminarAlert").on('click', function () {
+                                    eliminarDoctor();
+                                    $('#confirmarEliminar').modal('hide');
+                                });
+                                $("#botonSalir").on('click', function () {
+                                    location.href = "../../../menu.html";
+                                });
+
+        </script>
+    </body>
+</html>

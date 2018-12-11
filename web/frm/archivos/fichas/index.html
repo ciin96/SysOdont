@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Fichas</title>
+        <meta charset="UTF-8">
+        <link href="../../../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/estilos.css" rel="stylesheet" type="text/css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+   <body style="background-image: url('../../../img/img6.jpg')"> 
+        <div id="confirmar"></div>
+        <div id="buscar"></div>
+        <!--------------------------------------------------------------------->
+        <!-------------------------------------------------------------------->
+        <!--DETALLE-->
+        <div id="panelLinea" class="panel panel-primary">
+            <div class="panel-heading centrado">Servicios | Detalle</div>
+            <div class="panel-body">
+                <form id="formLinea">
+
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Id Linea</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_detalleficha" name="id_detalleficha" type="text" class="form-control input-sm" placeholder="Id" readonly="readonly">
+                        </div>
+                    </div>
+               
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Servicio</span>
+                        </div>
+                         <div class="col-md-1">
+                            <input id="id_servicio" name="id_servicio" type="text" class="form-control input-sm" placeholder="Id">
+                        </div>
+
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdServicio" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                        <div class="col-md-4">
+                            <input id="nombre_servicio" name="nombre_servicio" type="text" class="form-control input-sm" placeholder="Nombre Servicio" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Estado</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="estado_detalleficha" name="estado_detalleficha" type="text" class="form-control input-sm derecha" placeholder="Estado">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="panel-footer centrado">
+                <button id="botonAgregarLinea" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span>Agregar</button>
+                <button id="botonModificarLinea" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-retweet"></span>Modificar</button>
+                <button id="botonEliminarLinea" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#confirmarEliminarLinea"><span class="glyphicon glyphicon-trash"></span>Eliminar</button>
+                <button id="botonSalirLinea" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-log-out"></span>Salir</button>
+            </div>
+        </div>
+
+
+
+        <!--PANEL PROGRAMA-->
+        <div id="panelPrograma" class="panel panel-primary">
+            <div class="panel-heading centrado">Fichas  | <span
+                    id="sficha_ficha"></span></div>
+            <div class="panel-body">
+                <form id="formPrograma">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Id Ficha</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_ficha" name="id_ficha" type="text"
+                                   class="form-control imput-sm" placeholder="Id">
+                        </div>
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdFicha" type="button" class="btn btn-primary btn-sm"><span
+                                    class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                        <div class="col-md-9">   
+                        </div>
+                    </div>
+                   
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Fecha</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="fecha_ficha" name="fecha_ficha" type="date" class="form-control input-sm">
+                        </div>
+                    </div>
+
+
+                    <!--DOCTORES-->
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Id Doctor</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_doctor" name="id_doctor" type="text"
+                                   class="form-control imput-sm" placeholder="Id">
+                        </div>
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdDoctor" type="button" class="btn btn-primary btn-sm"><span
+                                    class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                        <div class="col-md-9">   
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Nombre</span>
+                        </div>
+                        <div class="col-md-4">
+                            <input id="nombre_doctor" name="nombre_doctor" type="text" class="form-control input-sm" placeholder="Nombre" >
+                        </div>
+                    </div>
+                    
+                    <!--PACIENTES-->
+                     <div class="row">
+                                <div class="col-md-1">
+                                    <span>Id Paciente</span>
+                                </div>
+                                <div class="col-md-1">
+                                    <input id="id_paciente" name="id_paciente" type="text"
+                                           class="form-control imput-sm" placeholder="Id">
+                                </div>
+                                <div class="col-md-1">
+                                    <button id="botonBuscarIdPaciente" type="button" class="btn btn-primary btn-sm"><span
+                                            class="glyphicon glyphicon-search"></span></button>
+                                </div>
+                                <div class="col-md-9">   
+                            </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1">
+                                <span>Nombre</span>
+                            </div>
+                            <div class="col-md-4">
+                                <input id="nombre_paciente" name="nombre_paciente" type="text" class="form-control input-sm" placeholder="Nombre" >
+                            </div>
+                            </div>
+                     <div class="row">
+                        <div class="col-md-1">
+                            <span>Observacion</span>
+                        </div>
+                        <div class="col-md-4">
+                            <input id="nombre_ficha" name="nombre_ficha" type="text" class="form-control input-sm" placeholder="Observacion" >
+                        </div>
+                    </div>
+
+              
+                </form>
+            </div> 
+            <div class="panel-footer centrado">
+                <button id="botonAgregar" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span>Agregar</button>
+                <button id="botonModificar" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-retweet"></span>Modificar</button>
+                <button id="BotonEliminar" type="button" class="btn btn-primary btn-sm" data-toggle="modal"
+                        data-target="#confirmarEliminar"><span class="glyphicon glyphicon-trash"></span>Eliminar</button>
+                <!--<button id="botonFacturar" type="button" class="btn btn-primary btn-sm">Facturar</button>-->
+                <button id="botonSalir" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-log-out"></span>Salir</button>
+            </div>
+            <!-----------------------TABLA------------------->
+
+            <div id="detalle" hidden="">
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Id Servicio</th>
+                            <th>Servicio</th>
+                            <th class="centrado">Estado</th>
+                            <th class="centrado">
+                                <button onclick="agregarLinea()" type="button" class="btn btn-primary btn-sm">
+                                    <span class="glyphicon glyphicon-plus"></span></button></th>
+                        </tr>
+                    </thead>
+                    <tbody id="contenidoDetalle">
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+
+
+ <div id="mensajes" class="well well-sm centrado">Mensajes del Sistema.</div>
+        <div class="modal fade" id="confirmarEliminar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header  centrado">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Mensaje del Sistema</h4>
+                    </div>
+                    <div class="modal-body">
+                        Está seguro de eliminar estos datos?
+                    </div>
+                    <div class="modal-footer centrado">
+                        <button id="botonEliminarAlert" type="button" class="btn btn-primary btn-sm">Eliminar</button>
+                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="confirmarEliminarLinea" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header  centrado">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabelLinea">Mensaje del Sistema</h4>
+                    </div>
+                    <div class="modal-body">
+                        Está seguro de eliminar esta linea?
+                    </div>
+                    <div class="modal-footer centrado">
+                        <button id="botonEliminarAlertLinea" type="button" class="btn btn-primary btn-sm">Eliminar</button>
+                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../../../js/jquery.min.js" type="text/javascript"></script>
+        <script src="../../../js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../../../js/funciones.js" type="text/javascript"></script> 
+        <script src="js/funciones.js" type="text/javascript"></script>
+        <script>
+
+
+                                $("#buscar").css("display", "none");
+                                $("#panelLinea").css("display", "none");
+                                $("#id_ficha").focus();
+
+
+
+
+                                $("#id_ficha").focusout(function (event) {
+                                    if ($("#id_ficha").val() === "") {
+                                        $("#id_ficha").val("0");
+                                    }
+                                    buscarIdFicha();
+                                });
+                                $("#botonBuscarIdFicha").on('click', function () {
+                                    $("#buscar").load("buscar.html");
+                                    $("#buscar").fadeIn("slow");
+                                    $("#panelPrograma").fadeOut("slow");
+                                });
+
+                                /*DOCTORES*/
+                                $("#id_doctor").focusout(function (event) {
+                                    if ($("#id_doctor").val() === "") {
+                                        $("#id_doctor").val("0");
+                                    }
+                                    buscarIdDoctor();
+                                });
+                                $("#botonBuscarIdDoctor").on('click', function () {
+                                    $("#buscar").load("buscarDoctor.html");
+                                    $("#buscar").fadeIn("slow");
+                                    $("#panelPrograma").fadeOut("slow");
+                                });
+
+                                $("#botonBuscarIdHorario").on('click', function () {
+                                    $("#buscar").load("buscarHorario.html");
+                                    $("#buscar").fadeIn("slow");
+                                    $("#panelPrograma").fadeOut("slow");
+                                });
+                                
+                                  //PACIENTES
+                                $("#id_paciente").focusout(function (event) {
+                                    if ($("#id_paciente").val() === "") {
+                                        $("#id_paciente").val("0");
+                                    }
+                                    buscarIdPaciente();
+                                });
+                                $("#botonBuscarIdPaciente").on('click', function () {
+                                    $("#buscar").load("buscarPaciente.html");
+                                    $("#buscar").fadeIn("slow");
+                                    $("#panelPrograma").fadeOut("slow");
+                                });
+                                
+                                
+
+
+
+                                //SERVICIOS
+                                $("#id_servicio").focusout(function (event) {
+                                    if ($("#id_servicio").val() === "") {
+                                        $("#id_servicio").val("0");
+                                    }
+                                    buscarIdServicio();
+                                });
+                                $("#botonBuscarIdServicio").on('click', function () {
+                                    $("#buscar").load("buscarServicio.html");
+                                    $("#buscar").fadeIn("slow");
+                                    $("#panelLinea").fadeOut("slow");
+                                });
+
+                              
+
+
+                                $("#botonAgregar").on('click', function () {
+                                    //if (validarFormulario()) {
+                                    agregarFicha();
+                                    //}  
+                                });
+                                  $("#botonFacturar").on('click', function () {
+                                    //if (validarFormulario()) {
+                                    crearFacturas();
+                                    //}  
+                                });
+                                $("#botonModificar").on('click', function () {
+                                    //if(validarFormulario()) {
+                                    modificarFicha();
+                                    //}   
+                                });
+                                $("#botonEliminarAlert").on('click', function () {
+                                    eliminarFicha();
+                                    $('#confirmarEliminar').modal('hide');
+                                });
+                                $("#botonSalir").on('click', function () {
+                                    location.href = "../../../menu.html";
+                                });
+                                
+                                
+
+                                $("#botonAgregarLinea").on('click', function () {
+                                    agregarDetalleFicha();
+                                });
+                                $("#botonModificarLinea").on('click', function () {
+                                    modificarDetalleFicha();
+                                });
+                                $("#botonEliminarAlertLinea").on('click', function () {
+                                    eliminarDetalleFicha();
+                                    $('#confirmarEliminarLinea').modal('hide');
+                                });
+                                $("#botonSalirLinea").on('click', function () {
+                                    $("#panelLinea").fadeOut("slow");
+                                    $("#panelPrograma").fadeIn("slow");
+                                });
+
+        </script>
+    </body>
+</html>

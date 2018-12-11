@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Cuentas</title>
+        <meta charset="UTF-8">
+        <link href="../../../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../css/estilos.css" rel="stylesheet" type="text/css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+   <body style="background-image: url('../../../img/img6.jpg')"> 
+        <div id="confirmar"></div>
+        <div id="buscar"></div>
+        <!--------------------------------------------------------------------->
+        <!-------------------------------------------------------------------->
+        <!--DETALLE-->
+        <div id="panelLinea" class="panel panel-primary">
+            <div class="panel-heading centrado">Cuentas | Detalle</div>
+            <div class="panel-body">
+                <form id="formLinea">
+
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Id Linea</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_detallecuenta" name="id_detallecuenta" type="text" class="form-control input-sm" placeholder="Id" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Cuenta</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_cuenta" name="id_cuenta" type="text" class="form-control input-sm" placeholder="Id">
+                        </div>
+
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdCuenta" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                        
+                    </div>
+
+
+                </form>
+            </div>
+            <div class="panel-footer centrado">
+                <button id="botonAgregarLinea" type="button" class="btn btn-primary btn-sm">Agregar</button>
+                <button id="botonModificarLinea" type="button" class="btn btn-primary btn-sm">Modificar</button>
+                <button id="botonEliminarLinea" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#confirmarEliminarLinea">Eliminar</button>
+                <button id="botonSalirLinea" type="button" class="btn btn-primary btn-sm">Salir</button>
+            </div>
+        </div>
+
+
+
+        <!--PANEL PROGRAMA-->
+        <div id="panelPrograma" class="panel panel-primary">
+            <div class="panel-heading centrado">Cuentas  | <span
+                    id="scuenta_cuenta"></span></div>
+            <div class="panel-body">
+                <form id="formPrograma">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Id Cuenta</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_cuenta" name="id_cuenta" type="text"
+                                   class="form-control imput-sm" placeholder="Id">
+                        </div>
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdCuenta" type="button" class="btn btn-primary btn-sm"><span
+                                    class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                        <div class="col-md-9">   
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Nombre</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="nombre_cuenta" name="nombre_cuenta" type="text" class="form-control input-sm" placeholder="Nombre" onkeyup="this.value = this.value.toUpperCase()">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Monto Total</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="monto_total" name="monto_total" type="text" class="form-control input-sm" placeholder="Monto" onkeyup="this.value = this.value.toUpperCase()">
+                        </div>
+                    </div>
+                     <div class="row">
+                        <div class="col-md-1">
+                            <span>Estado Cuenta</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="estado_cuenta" name="estado_cuenta" type="text" class="form-control input-sm" placeholder="Estado" onkeyup="this.value = this.value.toUpperCase()">
+                        </div>
+                    </div>
+                    
+                     <div class="row">
+                        <div class="col-md-1">
+                            <span>Total Cuota Cuenta</span>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="total_cuota" name="total_cuota" type="text" class="form-control input-sm" placeholder="Estado" onkeyup="this.value = this.value.toUpperCase()">
+                        </div>
+                    </div>
+                    
+                    <!--FACTURAS-->
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Id Factura</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_factura" name="id_factura" type="text"
+                                   class="form-control imput-sm" placeholder="Id">
+                        </div>
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdFactura" type="button" class="btn btn-primary btn-sm"><span
+                                    class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                        <div class="col-md-9">   
+                        </div>
+                    </div>
+
+
+                    
+
+                   
+
+                   
+                </form>
+            </div> 
+            <div class="panel-footer centrado">
+                <button id="botonAgregar" type="button" class="btn btn-primary btn-sm">Agregar</button>
+                <button id="botonModificar" type="button" class="btn btn-primary btn-sm">Modificar</button>
+                <button id="BotonEliminar" type="button" class="btn btn-primary btn-sm" data-toggle="modal"
+                        data-target="#confirmarEliminar">Eliminar</button>
+                <button id="botonSalir" type="button" class="btn btn-primary btn-sm">Salir</button>
+            </div>
+            <!-----------------------TABLA------------------->
+
+            <div id="detalle" hidden="">
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Cuenta</th>
+                            <th>Numero de Cuota</th>
+                            <th>Monto Cuota</th>
+                            <th class="centrado">Estado</th>
+                            <th class="centrado">
+                                <button onclick="agregarLinea()" type="button" class="btn btn-primary btn-sm">
+                                    <span class="glyphicon glyphicon-plus"></span></button></th>
+                        </tr>
+                    </thead>
+                    <tbody id="contenidoDetalle">
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+
+
+ <div id="mensajes" class="well well-sm centrado">Mensajes del Sistema.</div>
+        <div class="modal fade" id="confirmarEliminar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header  centrado">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Mensaje del Sistema</h4>
+                    </div>
+                    <div class="modal-body">
+                        Está seguro de eliminar estos datos?
+                    </div>
+                    <div class="modal-footer centrado">
+                        <button id="botonEliminarAlert" type="button" class="btn btn-primary btn-sm">Eliminar</button>
+                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="confirmarEliminarLinea" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header  centrado">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabelLinea">Mensaje del Sistema</h4>
+                    </div>
+                    <div class="modal-body">
+                        Está seguro de eliminar esta linea?
+                    </div>
+                    <div class="modal-footer centrado">
+                        <button id="botonEliminarAlertLinea" type="button" class="btn btn-primary btn-sm">Eliminar</button>
+                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../../../js/jquery.min.js" type="text/javascript"></script>
+        <script src="../../../js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../../../js/funciones.js" type="text/javascript"></script> 
+        <script src="js/funciones.js" type="text/javascript"></script>
+        <script>
+
+
+                                $("#buscar").css("display", "none");
+                                $("#panelLinea").css("display", "none");
+                                $("#id_cuenta").focus();
+
+
+
+
+                                $("#id_cuenta").focusout(function (event) {
+                                    if ($("#id_cuenta").val() === "") {
+                                        $("#id_cuenta").val("0");
+                                    }
+                                    buscarIdCuenta();
+                                });
+                                $("#botonBuscarIdCuenta").on('click', function () {
+                                    $("#buscar").load("buscar.html");
+                                    $("#buscar").fadeIn("slow");
+                                    $("#panelPrograma").fadeOut("slow");
+                                });
+                                
+                                //FACTURAS
+                                $("#id_factura").focusout(function (event) {
+                                    if ($("#id_factura").val() === "") {
+                                        $("#id_factura").val("0");
+                                    }
+                                    buscarIdFactura();
+                                });
+                                $("#botonBuscarIdFactura").on('click', function () {
+                                    $("#buscar").load("buscar.html");
+                                    $("#buscar").fadeIn("slow");
+                                    $("#panelPrograma").fadeOut("slow");
+                                });
+
+                               
+
+                              
+                                $("#botonAgregar").on('click', function () {
+                                    //if (validarFormulario()) {
+                                    agregarCuenta();
+                                    //}  
+                                });
+                                $("#botonModificar").on('click', function () {
+                                    //if(validarFormulario()) {
+                                    modificarCuenta();
+                                    //}   
+                                });
+                                $("#botonEliminarAlert").on('click', function () {
+                                    eliminarCuenta();
+                                    $('#confirmarEliminar').modal('hide');
+                                });
+                                $("#botonSalir").on('click', function () {
+                                    location.href = "../../../menu.html";
+                                });
+                                
+                                
+
+                                $("#botonAgregarLinea").on('click', function () {
+                                    agregarDetalleCuenta();
+                                });
+                                $("#botonModificarLinea").on('click', function () {
+                                    modificarDetalleCuenta();
+                                });
+                                $("#botonEliminarAlertLinea").on('click', function () {
+                                    eliminarDetalleCuenta();
+                                    $('#confirmarEliminarLinea').modal('hide');
+                                });
+                                $("#botonSalirLinea").on('click', function () {
+                                    $("#panelLinea").fadeOut("slow");
+                                    $("#panelPrograma").fadeIn("slow");
+                                });
+
+        </script>
+    </body>
+</html>
